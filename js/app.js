@@ -1,4 +1,4 @@
-import { config } from './config.js';
+import { config } from './config.js?v=mp3-1';
 import { createPlayer } from './player.js';
 
 document.querySelectorAll('[data-copy]').forEach((element) => {
