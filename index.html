@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#eee7da">
+    <meta name="description" content="A little record, just for ENOLA. 一份可以听见的生日礼物。">
+    <meta name="robots" content="noindex, nofollow">
+    <title>ENOLA — A little record for you</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="./js/app.js"></script>
+  </head>
+  <body>
+    <main>
+      <section class="sleeve" aria-labelledby="name">
+        <div class="edition"><span>A PRIVATE PRESSING</span><span>VOL. <span data-copy="age">24</span></span></div>
+        <header class="heading">
+          <p class="eyebrow" data-copy="subtitle">HAPPY 24TH BIRTHDAY</p>
+          <h1 id="name" data-copy="name">ENOLA</h1>
+          <p class="dedication" data-copy="tagline">A LITTLE RECORD, JUST FOR YOU.</p>
+        </header>
+        <div class="turntable" id="turntable">
+          <div class="record-shadow"></div>
+          <div class="record" id="record">
+            <div class="grooves"></div>
+            <button class="label" id="secret" type="button" aria-label="唱片中央藏着一句话，轻触查看">
+              <span class="label-top">ONLY FOR YOU</span>
+              <span class="label-name" data-copy="name">ENOLA</span>
+              <span class="label-rule"></span>
+              <span class="label-age">SIDE A <span>·</span> <span data-copy="age">24</span></span>
+              <span class="spindle"></span>
+              <svg class="whirlpool" viewBox="0 0 100 35" aria-hidden="true"><path d="M8 20C13 0 88 1 91 18C94 34 22 35 21 20C20 8 76 7 78 19C80 28 35 30 34 21C32 14 64 13 65 20C66 25 45 26 46 21"/></svg>
+              <span class="label-bottom">WITH ALL MY LOVE</span>
+            </button>
+          </div>
+          <div class="tonearm" aria-hidden="true"><div class="arm-pivot"></div><div class="arm-shaft"></div><div class="arm-head"></div></div>
+        </div>
+        <div class="hero-quote">
+          <h2 data-copy="quote">跳入漩涡，然后彼此拥抱。</h2>
+          <p data-copy="quoteEnglish">Into the whirlpool, into each other's arms.</p>
+        </div>
+        <a class="listen-link" href="#listen">这张唱片里，藏着我的声音 <span aria-hidden="true">↓</span></a>
+      </section>
+
+      <section class="listening" id="listen" aria-labelledby="track-title">
+        <div class="section-meta"><span>SIDE A — A VOICE LETTER</span><span>01 / 01</span></div>
+        <div class="track-heading"><div><p class="eyebrow">PRESS PLAY, MY LOVE</p><h2 id="track-title" data-copy="trackTitle">有些话，想亲口对你说。</h2></div><span class="track-mark" aria-hidden="true">A</span></div>
+        <div class="player" aria-busy="false" id="player">
+          <button id="play" class="play-button" type="button" aria-label="播放语音" disabled>
+            <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7Z"/></svg>
+            <svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>
+            <span class="spinner" aria-hidden="true"></span>
+          </button>
+          <div class="timeline"><label class="sr-only" for="seek">播放进度</label><input id="seek" type="range" min="0" max="100" value="0" step="0.1" disabled aria-valuetext="尚未加载"><div class="time"><span id="current">0:00</span><span id="duration">—:—</span></div></div>
+        </div>
+        <p class="player-status" id="status" role="status" aria-live="polite">轻触播放，让声音慢慢靠近。</p>
+        <button id="retry" class="retry" type="button" hidden>重新加载音频 ↻</button>
+        <audio id="audio" preload="metadata"></audio>
+        <noscript><p>请开启浏览器 JavaScript，以使用语音播放器。</p></noscript>
+      </section>
+
+      <section class="letter" aria-labelledby="letter-title">
+        <p class="eyebrow">THE LINER NOTES</p>
+        <h2 id="letter-title" data-copy="salutation">To ENOLA,</h2>
+        <p class="letter-birthday" data-copy="birthday">24 岁生日快乐。</p>
+        <p class="letter-body" data-copy="message">愿我们一直拥有跳入未知的勇气，\n也一直拥有拥抱彼此的坚定。</p>
+        <p class="signature" data-copy="signature">With all my love.</p>
+        <div class="letter-end" aria-hidden="true">∞</div>
+      </section>
+      <footer><span>MADE FOR <span data-copy="name">ENOLA</span></span><span>ONE OF ONE</span></footer>
+    </main>
+    <div class="secret-message" id="secret-message" role="status" aria-live="polite"><p data-copy="secret">无论世界如何旋转，我都会拥抱你。</p></div>
+  </body>
+</html>
