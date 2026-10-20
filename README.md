@@ -16,7 +16,7 @@ node scripts/serve.mjs
 
 ## 放入真实录音
 
-当前已接入你提供的 `人质.wav`，复制至 `public/audio/enola.wav`，并在 `js/config.js` 中配置。原始文件保留在项目根目录。之后可直接替换 `public/audio/enola.wav`；若改用下述 MP3 方案，需将 `audioSrc` 改为 `./public/audio/enola.mp3`。部署只需上传音频目录中的版本，根目录原始录音无需上传。
+当前已将你提供的 `人质.wav` 在本地转为 `public/audio/enola.mp3`，播放器已切换为 MP3。采用 128 kbps 双声道，时长约 1 分 34 秒，文件约 1.51 MB，比原 WAV 减少约 94%。原始 `人质.wav` 与 `public/audio/enola.wav` 备份均保留，不被播放器请求。之后直接替换同名 MP3 即可。MP3 为有损压缩，未调整音量或裁剪内容。
 
 将你的录音命名为 `enola.mp3`，放到 **`public/audio/enola.mp3`**。这是实际静态目录，不需要打包工具处理。推荐使用真正编码为 MP3 的文件，不要只把其他格式改后缀。
 
@@ -95,4 +95,4 @@ git push -u origin main
 
 真实 HTML5 Audio 播放、暂停、时长、可拖动进度、缓冲与错误提示；播放事件驱动唱片旋转和唱针移动，暂停保留角度；播放结束可重听；中央标签显示 4.5 秒彩蛋；支持键盘、读屏标签、安全区与 prefers-reduced-motion。
 
-已在桌面内嵌浏览器使用临时 WAV 测试音检查真实播放流程，并检查 360 / 390 / 430px 布局。测试音不用于正式网页。当前已接入正式 WAV，时长约 1 分 34 秒，双声道、48 kHz、24 bit PCM，约 27 MB。GitHub Pages 已发布且 HTTPS 网页与音频文件返回 200。实际录音听感、安卓 Chrome、iPhone Safari、实体手机安全区与 NFC 贴纸仍需按 `TESTING.md` 实测。
+已在桌面内嵌浏览器使用临时 WAV 测试音检查真实播放流程，并检查 360 / 390 / 430px 布局。测试音不用于正式网页。正式录音现使用约 1.51 MB 的 MP3；源 WAV 为双声道、48 kHz、24 bit PCM，约 27 MB。GitHub Pages 已发布。MP3 转码后逐帧检查通过，时长与原录音一致（编码填充约 0.03 秒）。实际录音听感、安卓 Chrome、iPhone Safari、实体手机安全区与 NFC 贴纸仍需按 `TESTING.md` 实测。

@@ -12,5 +12,5 @@ export const config = {
   message: '愿我们一直拥有跳入未知的勇气，\n也一直拥有拥抱彼此的坚定。',
   signature: 'With all my love.',
   secret: '无论世界如何旋转，我都会拥抱你。',
-  audioSrc: './public/audio/enola.wav',
+  audioSrc: './public/audio/enola.mp3',
 };
