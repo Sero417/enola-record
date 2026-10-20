@@ -2,6 +2,8 @@
 
 一张可以听见的私人生日唱片。原生 HTML / CSS / JavaScript，无需构建、无需安装依赖，无后台、无追踪、无外部 CDN。首屏保留姓名、黑胶和「跳入漩涡，然后彼此拥抱」，向下滑动发现语音与生日信。
 
+正式网页：**https://sero417.github.io/enola-record/**。NFC Tools 的 URL / URI 记录填写这个地址。仓库：https://github.com/Sero417/enola-record 。发布来源为 `main` 分支根目录；后续推送会触发自动更新。
+
 ## 本地预览
 
 安装 Node.js 后，在项目目录运行：
@@ -93,4 +95,4 @@ git push -u origin main
 
 真实 HTML5 Audio 播放、暂停、时长、可拖动进度、缓冲与错误提示；播放事件驱动唱片旋转和唱针移动，暂停保留角度；播放结束可重听；中央标签显示 4.5 秒彩蛋；支持键盘、读屏标签、安全区与 prefers-reduced-motion。
 
-已在桌面内嵌浏览器使用临时 WAV 测试音检查真实播放流程，并检查 360 / 390 / 430px 布局。测试音不用于正式网页。真实 MP3、安卓 Chrome、iPhone Safari、实体手机安全区与 NFC 贴纸仍需按 `TESTING.md` 实测。当前没有发布到 GitHub，尚无正式 HTTPS 地址。
+已在桌面内嵌浏览器使用临时 WAV 测试音检查真实播放流程，并检查 360 / 390 / 430px 布局。测试音不用于正式网页。当前已接入正式 WAV，时长约 1 分 34 秒，双声道、48 kHz、24 bit PCM，约 27 MB。GitHub Pages 已发布且 HTTPS 网页与音频文件返回 200。实际录音听感、安卓 Chrome、iPhone Safari、实体手机安全区与 NFC 贴纸仍需按 `TESTING.md` 实测。

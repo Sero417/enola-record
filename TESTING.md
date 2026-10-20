@@ -27,3 +27,11 @@
 6. 将正式 URL 写入 NFC，用另一部不装 NFC Tools 的手机读取并试听。
 
 本记录中的响应式视口测试不等同于真实手机或 NFC 测试。当前浏览器验证使用 WAV，实际录音的 MP3 编码兼容性需补充验证。
+
+## 正式录音与发布
+
+- 正式录音：`public/audio/enola.wav`，27,211,820 字节；读取 WAV 头确认双声道、48 kHz、24 bit PCM，时长 94.49 秒。没有替换或改动录音内容。
+- 网页与音频已上传到 `Sero417/enola-record` 的 main 分支；根目录原始 WAV 与 artifacts 目录未上传。
+- GitHub Pages 来源：main /；HTTPS 已开启；首次构建状态为 built。
+- 正式页面 `https://sero417.github.io/enola-record/` 返回 200，包含 ENOLA 标题；正式 WAV 的 HTTPS HEAD 请求返回 200。
+- 本轮浏览器控制接口连续超时，未能完成正式网址上的浏览器试听；需要用户真机确认声音、音量与 NFC 读取。
