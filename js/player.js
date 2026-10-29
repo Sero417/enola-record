@@ -24,6 +24,7 @@ export function createPlayer(source) {
   }
 
   function setLoading(loading) {
+    status.classList.toggle('notice', loading);
     player.classList.toggle('loading', loading);
     player.setAttribute('aria-busy', String(loading));
     clearTimeout(loadingTimer);
@@ -52,6 +53,7 @@ export function createPlayer(source) {
     setPlaying(false);
     play.disabled = false;
     retry.hidden = false;
+    status.classList.add('notice');
     status.textContent = message;
   }
 

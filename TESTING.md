@@ -44,3 +44,12 @@
 - 未裁剪录音或调整音量；原 WAV 仍保留。MP3 为有损压缩，需手机试听确认听感与实际网络加载时间。
 - MP3 版本线上构建状态 built，config.js 已使用 MP3；音频 HTTPS HEAD 返回 200、audio/mp3、1,512,192 字节。
 - 入口模块和配置导入增加版本参数，避免继续复用旧音频路径的模块缓存。浏览器试听接口超时，本轮未验证手机端实测耗时。
+
+## 唱片内页视觉验证（2026-10-29）
+
+- 全部 js/*.js 通过 node --check，git diff --check 无错误。
+- 在浏览器 360×800、390×844、430×932 视口检查首页和歌词内页；处理唱片旋转包围盒引起的横向溢出。
+- 真实 MP3 播放时间推进；拖动进度后歌词高亮更新，测得当前行与歌词视区中心偏差 0px；首次 playing 后操作提示 opacity 为 0。
+- 拨回最外端后 audio.paused 为 true；歌词打开、关闭正常。
+- 截图保存在本地 artifacts/liner-home-mobile.jpg、artifacts/liner-lyrics-mobile.jpg。
+- 未进行真机 Safari、NFC 或中国境内网络连通性测试。

@@ -4,7 +4,7 @@ export const config = {
   age: '24',
   subtitle: 'HAPPY 24TH BIRTHDAY',
   tagline: 'A LITTLE RECORD, JUST FOR YOU.',
-  quote: '相互拥抱，然后跳进漩涡。',
+  quote: '相互拥抱，\n然后跳进漩涡。',
   quoteEnglish: "Into each other's arms, then into the whirlpool.",
   trackTitle: '有些话，想亲口对你说。',
   salutation: 'To ENOLA,',

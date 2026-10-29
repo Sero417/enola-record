@@ -1,4 +1,4 @@
-import { lyrics } from './lyrics-data.js?v=arm-2';
+import { lyrics } from './lyrics-data.js?v=liner-1';
 
 export function setupLyrics() {
   const dialog = document.querySelector('#lyrics-dialog');
@@ -19,12 +19,13 @@ export function setupLyrics() {
     active = index;
     lines.forEach((line, i) => {
       line.classList.toggle('current-line', i === index);
+      line.classList.toggle('near-line', Math.abs(i - index) === 1);
       if (i === index) line.setAttribute('aria-current', 'true');
       else line.removeAttribute('aria-current');
     });
     if (dialog.open && lines[index]) {
       const line = lines[index];
-      list.scrollTo({ top: line.offsetTop - list.offsetTop - list.clientHeight / 2 + line.clientHeight / 2,
+      list.scrollTo({ top: line.offsetTop - list.clientHeight / 2 + line.clientHeight / 2,
         behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
     }
   }
