@@ -61,7 +61,7 @@ export function createPlayer(source) {
     setLoading(false);
     play.disabled = false;
     retry.hidden = true;
-    if (!requested && audio.paused) status.textContent = '轻触播放，让声音慢慢靠近。';
+    if (!requested && audio.paused) status.textContent = '拨动唱针播放，轻触圆心查看歌词。';
   });
   audio.addEventListener('playing', () => {
     requested = true;
@@ -99,27 +99,28 @@ export function createPlayer(source) {
         '这张唱片还在等一段声音。录音尚未放入，或暂时无法加载。');
   });
 
-  play.addEventListener('click', async () => {
-    if (requested || !audio.paused) {
-      audio.pause();
-      requested = false;
-      setLoading(false);
-      setPlaying(false);
-      return;
-    }
+  async function start() {
+    if (requested || !audio.paused) return;
     if (audio.error) audio.load();
     if (audio.ended) audio.currentTime = 0;
     requested = true;
     setLoading(true);
     status.textContent = '声音正在靠近，请稍等…';
-    try {
-      await audio.play();
-    } catch (error) {
-      if (error.name === 'AbortError') return; // 暂停或重新加载会取消待完成的播放。
-      fail(error.name === 'NotAllowedError'
-        ? '浏览器暂时阻止了播放，请再轻触一次播放按钮。'
-        : '暂时无法播放这段声音，请检查录音文件和网络后重试。');
+    try { await audio.play(); }
+    catch (error) {
+      if (error.name !== 'AbortError') fail('暂时无法播放，请检查网络并点击重新加载。');
     }
+  }
+  function stop() {
+    requested = false;
+    audio.pause();
+    setLoading(false);
+    setPlaying(false);
+  }
+  play.addEventListener('click', () => {
+    const active = requested || !audio.paused;
+    audio.dispatchEvent(new CustomEvent('needle-command', { detail: !active }));
+    if (active) stop(); else start();
   });
 
   seek.addEventListener('input', () => {
@@ -136,9 +137,12 @@ export function createPlayer(source) {
     setLoading(true);
     status.textContent = '正在重新寻找这段声音…';
     audio.load();
+    start();
+    audio.dispatchEvent(new CustomEvent('needle-command', { detail: true }));
   });
   audio.src = source;
   // 不自动播放，也不预下载整个录音。
   setLoading(true);
   audio.load();
+  return { audio, start, stop };
 }

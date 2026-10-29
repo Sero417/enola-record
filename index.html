@@ -8,8 +8,8 @@
     <meta name="robots" content="noindex, nofollow">
     <title>ENOLA — A little record for you</title>
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="./styles.css">
-    <script type="module" src="./js/app.js?v=mp3-1"></script>
+    <link rel="stylesheet" href="./styles.css?v=arm-1">
+    <script type="module" src="./js/app.js?v=arm-1"></script>
   </head>
   <body>
     <main>
@@ -24,7 +24,7 @@
           <div class="record-shadow"></div>
           <div class="record" id="record">
             <div class="grooves"></div>
-            <button class="label" id="secret" type="button" aria-label="唱片中央藏着一句话，轻触查看">
+            <button class="label" id="secret" type="button" aria-label="查看歌词" aria-haspopup="dialog">
               <span class="label-top">ONLY FOR YOU</span>
               <span class="label-name" data-copy="name">ENOLA</span>
               <span class="label-rule"></span>
@@ -34,18 +34,22 @@
               <span class="label-bottom">WITH ALL MY LOVE</span>
             </button>
           </div>
-          <div class="tonearm" aria-hidden="true"><div class="arm-pivot"></div><div class="arm-shaft"></div><div class="arm-head"></div></div>
+          <div class="tonearm" id="tonearm" role="slider" tabindex="0" aria-label="唱针角度，向左拨动播放，向右拨回暂停" aria-valuemin="-13" aria-valuemax="30" aria-valuenow="-13"><div class="arm-pivot"></div><div class="arm-shaft"></div><div class="arm-head"></div></div>
         </div>
         <div class="hero-quote">
           <h2 data-copy="quote">跳入漩涡，然后彼此拥抱。</h2>
           <p data-copy="quoteEnglish">Into the whirlpool, into each other's arms.</p>
         </div>
-        <a class="listen-link" href="#listen">这张唱片里，藏着我的声音 <span aria-hidden="true">↓</span></a>
+        <p class="gesture-hint">拨动唱针，让声音靠近 · 轻触圆心，展开歌词</p><p class="player-status" id="status" role="status" aria-live="polite">将唱针向左拨到唱片上</p><button id="retry" class="retry" type="button" hidden>重新加载音频 ↻</button>
       </section>
 
-      <section class="listening" id="listen" aria-labelledby="track-title">
-        <div class="section-meta"><span>SIDE A — A VOICE LETTER</span><span>01 / 01</span></div>
-        <div class="track-heading"><div><p class="eyebrow">PRESS PLAY, MY LOVE</p><h2 id="track-title" data-copy="trackTitle">有些话，想亲口对你说。</h2></div><span class="track-mark" aria-hidden="true">A</span></div>
+      <audio id="audio" preload="metadata"></audio>
+      <noscript>请开启 JavaScript，以使用唱片播放器。</noscript>
+    </main>
+    <dialog id="lyrics-dialog" aria-labelledby="lyrics-title">
+      <div class="lyrics-header"><span class="eyebrow">SIDE A · LYRICS</span><button id="close-lyrics" type="button" aria-label="关闭歌词">×</button></div>
+      <h2 id="lyrics-title">人质</h2><p class="lyrics-credit">张惠妹 · 歌词时间轴示例</p>
+      <div class="lyrics-lines" id="lyrics-lines" tabindex="0" aria-label="歌词列表"></div>
         <div class="player" aria-busy="false" id="player">
           <button id="play" class="play-button" type="button" aria-label="播放语音" disabled>
             <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7Z"/></svg>
@@ -54,22 +58,7 @@
           </button>
           <div class="timeline"><label class="sr-only" for="seek">播放进度</label><input id="seek" type="range" min="0" max="100" value="0" step="0.1" disabled aria-valuetext="尚未加载"><div class="time"><span id="current">0:00</span><span id="duration">—:—</span></div></div>
         </div>
-        <p class="player-status" id="status" role="status" aria-live="polite">轻触播放，让声音慢慢靠近。</p>
-        <button id="retry" class="retry" type="button" hidden>重新加载音频 ↻</button>
-        <audio id="audio" preload="metadata"></audio>
-        <noscript><p>请开启浏览器 JavaScript，以使用语音播放器。</p></noscript>
-      </section>
-
-      <section class="letter" aria-labelledby="letter-title">
-        <p class="eyebrow">THE LINER NOTES</p>
-        <h2 id="letter-title" data-copy="salutation">To ENOLA,</h2>
-        <p class="letter-birthday" data-copy="birthday">24 岁生日快乐。</p>
-        <p class="letter-body" data-copy="message">愿我们一直拥有跳入未知的勇气，\n也一直拥有拥抱彼此的坚定。</p>
-        <p class="signature" data-copy="signature">With all my love.</p>
-        <div class="letter-end" aria-hidden="true">∞</div>
-      </section>
-      <footer><span>MADE FOR <span data-copy="name">ENOLA</span></span><span>ONE OF ONE</span></footer>
-    </main>
-    <div class="secret-message" id="secret-message" role="status" aria-live="polite"><p data-copy="secret">无论世界如何旋转，我都会拥抱你。</p></div>
+      <p class="lyrics-note">当前为占位文本，时间轴可后续调整。</p>
+    </dialog>
   </body>
 </html>

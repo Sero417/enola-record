@@ -42,7 +42,7 @@ main { max-width: 760px; margin: auto; padding-inline: 32px; }
 .arm-shaft { position: absolute; top: 19px; right: 17px; width: 7px; height: 77%; border: 1px solid #83735f; background: linear-gradient(90deg,#8c7d6a,#e0d8c9 45%,#9a8b77); transform: rotate(8deg); transform-origin: top; box-shadow: 4px 6px 5px #0003; border-radius: 4px; }
 .arm-head { position: absolute; bottom: 8%; right: 38px; width: 16px; height: 32px; background: linear-gradient(90deg,#4f463b,#756653,#3d342b); transform: rotate(22deg); border-radius: 2px; box-shadow: 3px 4px 5px #0003; }
 .is-playing .record { animation-play-state: running; }
-.is-playing .tonearm { transform: rotate(10deg); }
+
 .hero-quote { text-align: center; animation: arrive 1.2s .35s both; }
 .hero-quote h2 { font-size: clamp(16px, 4vw, 21px); font-weight: 400; letter-spacing: .1em; margin: 0 0 13px; }
 .hero-quote p { font-family: var(--serif); font-style: italic; font-size: clamp(12px, 3vw, 15px); color: var(--muted); margin: 0; }
@@ -110,3 +110,24 @@ footer { border-top: 1px solid var(--line); padding: 19px 0 max(27px, env(safe-a
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Interactive needle and the lyric sheet share the original sleeve palette. */
+.tonearm { pointer-events: auto; touch-action: none; cursor: grab; transform: rotate(var(--angle, -13deg)); transition: transform .35s ease; outline-offset: 8px; }
+.tonearm.dragging { cursor: grabbing; transition: none; }
+.tonearm > * { pointer-events: auto; }
+.arm-head::after { content: ""; position: absolute; inset: -12px; }
+.tonearm:focus-visible { outline: 1px dashed var(--red); border-radius: 12px; }
+.gesture-hint { margin: auto 0 0; padding-top: 28px; font-size: 10px; letter-spacing: .08em; color: var(--muted); text-align: center; }
+.sleeve > .player-status { margin: 10px 0 max(25px, env(safe-area-inset-bottom)); text-align: center; font-size: 10px; }
+.sleeve > .retry { margin: -12px 0 18px; }
+body.lyrics-open { overflow: hidden; }
+#lyrics-dialog { width: min(460px, calc(100% - 32px)); max-height: calc(100dvh - 48px); padding: 28px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); overflow: auto; animation: arrive .45s ease both; }
+#lyrics-dialog::backdrop { background: #211d1a88; backdrop-filter: blur(5px); }
+.lyrics-header { display: flex; align-items: center; justify-content: space-between; color: var(--muted); }
+#close-lyrics { border: none; background: none; font-size: 28px; color: var(--ink); width: 44px; height: 44px; cursor: pointer; }
+#lyrics-title { font-size: 28px; letter-spacing: .18em; font-weight: 400; margin: 22px 0 10px; }
+.lyrics-credit, .lyrics-note { font-size: 10px; color: var(--muted); letter-spacing: .06em; line-height: 1.8; }
+.lyrics-lines { position: relative; height: min(35dvh, 290px); overflow-y: auto; margin: 28px 0; padding-block: 30px; scrollbar-width: thin; }
+.lyrics-lines p { color: var(--muted); font-size: 14px; line-height: 1.9; margin: 0; padding: 14px 0; transition: color .4s; }
+.lyrics-lines .current-line { color: var(--red); font-weight: 600; }
+.lyrics-note { text-align: center; margin: 20px 0 0; }
