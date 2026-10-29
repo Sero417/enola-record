@@ -1,4 +1,4 @@
-import { lyrics } from './lyrics-data.js?v=single-line-1';
+import { lyrics } from './lyrics-data.js?v=gaussian-1';
 
 export function setupLyrics() {
   const dialog = document.querySelector('#lyrics-dialog');
