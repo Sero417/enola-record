@@ -1,4 +1,4 @@
-import { lyrics } from './lyrics-data.js?v=liner-1';
+import { lyrics } from './lyrics-data.js?v=lyrics-glass-1';
 
 export function setupLyrics() {
   const dialog = document.querySelector('#lyrics-dialog');

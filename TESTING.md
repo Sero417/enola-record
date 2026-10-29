@@ -53,3 +53,9 @@
 - 拨回最外端后 audio.paused 为 true；歌词打开、关闭正常。
 - 截图保存在本地 artifacts/liner-home-mobile.jpg、artifacts/liner-lyrics-mobile.jpg。
 - 未进行真机 Safari、NFC 或中国境内网络连通性测试。
+
+## 透明歌词与短屏验证（2026-10-29）
+
+- 浏览器 390×700、360×600：首页 scrollHeight 等于视口高度，主标题、唱片、主句与提示均完整显示。
+- 两种尺寸歌词层 clientHeight 与 scrollHeight 均等于视口高度，底部控制按钮可见。
+- 拖动进度更新当前歌词，播放/暂停正常；尚未进行真机测试。
