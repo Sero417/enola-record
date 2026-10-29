@@ -1,4 +1,4 @@
-import { lyrics } from './lyrics-data.js?v=arm-1';
+import { lyrics } from './lyrics-data.js?v=arm-2';
 
 export function setupLyrics() {
   const dialog = document.querySelector('#lyrics-dialog');

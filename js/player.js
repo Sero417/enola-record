@@ -46,6 +46,7 @@ export function createPlayer(source) {
   }
 
   function fail(message) {
+    audio.dispatchEvent(new Event('play-failed'));
     requested = false;
     setLoading(false);
     setPlaying(false);

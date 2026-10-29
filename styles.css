@@ -131,3 +131,4 @@ body.lyrics-open { overflow: hidden; }
 .lyrics-lines p { color: var(--muted); font-size: 14px; line-height: 1.9; margin: 0; padding: 14px 0; transition: color .4s; }
 .lyrics-lines .current-line { color: var(--red); font-weight: 600; }
 .lyrics-note { text-align: center; margin: 20px 0 0; }
+
