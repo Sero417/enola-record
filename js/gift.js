@@ -11,7 +11,7 @@ export function setupGift() {
     intro.classList.add('unwrapped');
     open.disabled = true;
     document.querySelector('#gift-message').textContent = '愿你心里的每一颗星星，都慢慢亮起来。';
-    const delay = matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 2300;
+    const delay = matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 1600;
     setTimeout(() => {
       card.disabled = false;
       next.hidden = false;

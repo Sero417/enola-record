@@ -49,3 +49,17 @@
 
 .tarot-card:disabled { pointer-events: none; }
 .gift-box { z-index: 2; }
+/* Reference rhythm: release ribbon, compress, spring up, settle. */
+.gift-stage { --card-rise: -100px; }
+.unwrapped .gift-box { animation: gift-anticipate .55s ease both; }
+.unwrapped .gift-bow::before, .unwrapped .gift-bow::after { animation-duration: .45s; }
+.unwrapped .gift-lid { animation: lid-release .65s .4s ease both; }
+.unwrapped .gift-base { animation: box-settle .7s .45s ease both; }
+.unwrapped .gift-side-left, .unwrapped .gift-side-right { animation-duration: .65s; animation-delay: .45s; }
+.unwrapped .tarot-card { transition: none; animation: card-spring 1s .52s both, card-hover 4s 1.52s ease-in-out infinite; }
+@keyframes gift-anticipate { 0% { transform: none; } 65% { transform: translateY(8px) scale(1.04,.9); } 100% { transform: none; } }
+@keyframes box-settle { 0% { transform: none; opacity: 1; } 45% { transform: perspective(400px) rotateX(-25deg) scaleX(1.08); opacity: .9; } 100% { transform: perspective(400px) rotateX(-15deg); opacity: .6; } }
+@keyframes card-spring { 0% { opacity: 0; transform: translateY(40px) scale(.35) rotate(-12deg); } 25% { opacity: 1; } 65% { opacity: 1; transform: translateY(calc(var(--card-rise) - 18px)) scale(1.06) rotate(3deg); } 85% { opacity: 1; transform: translateY(calc(var(--card-rise) + 6px)) scale(.98) rotate(-1deg); } 100% { opacity: 1; transform: translateY(var(--card-rise)); } }
+@keyframes card-hover { 0%,100% { transform: translateY(var(--card-rise)); } 50% { transform: translateY(calc(var(--card-rise) - 5px)); } }
+@media (max-height: 700px) { .gift-stage { --card-rise: -65px; } }
+@media (prefers-reduced-motion: reduce) { .unwrapped .tarot-card { opacity: 1; transform: translateY(var(--card-rise)); } }

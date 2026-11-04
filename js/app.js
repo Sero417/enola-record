@@ -14,5 +14,5 @@ import { setupLyrics } from './lyrics.js?v=gaussian-1';
 setupTonearm(controls);
 setupLyrics();
 
-import { setupGift } from './gift.js?v=gift-1';
+import { setupGift } from './gift.js?v=gift-2';
 setupGift();
