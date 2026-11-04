@@ -1,0 +1,51 @@
+.gift-intro { min-height: 100svh; padding: max(32px, env(safe-area-inset-top)) 24px max(24px, env(safe-area-inset-bottom)); display: flex; align-items: center; flex-direction: column; text-align: center; overflow: hidden; }
+.gift-intro[hidden], main[hidden], .gift-continue[hidden] { display: none; }
+.gift-kicker, .gift-footnote { font-size: 9px; letter-spacing: .22em; color: var(--muted); }
+.gift-intro h1 { font: italic clamp(42px, 11vw, 62px) var(--serif); font-weight: 400; margin: 24px 0 12px; }
+.gift-subtitle { font-size: 12px; letter-spacing: .16em; color: var(--muted); margin: 0; }
+.gift-stage { position: relative; width: 290px; height: min(440px, 52svh); min-height: 300px; margin: auto 0; }
+.gift-box { position: absolute; bottom: 35px; left: 25px; width: 240px; height: 145px; background: none; border: 0; cursor: pointer; color: var(--red); }
+.gift-base { position: absolute; inset: 24px 8px 0; background: #c5b59a; box-shadow: inset 0 4px 8px #69503e12, 0 16px 28px #352b2515; }
+.gift-base::after, .gift-lid::after { content: ''; position: absolute; top: 0; bottom: 0; width: 27px; left: calc(50% - 13px); background: #793c38; }
+.gift-lid { position: absolute; z-index: 3; top: 6px; left: 0; width: 240px; height: 30px; background: #d5c7ae; box-shadow: 0 3px 4px #352b2518; transition: transform 1.1s ease, opacity .9s ease; }
+.gift-bow::before, .gift-bow::after { content: ''; position: absolute; width: 53px; height: 27px; border: 6px solid #793c38; bottom: 27px; left: 62px; border-radius: 65% 65% 0 65%; transform: rotate(17deg); }
+.gift-bow::after { left: 115px; transform: scaleX(-1) rotate(17deg); }
+.gift-tag { position: absolute; z-index: 4; bottom: 31px; right: 31px; font: italic 24px var(--serif); padding: 9px 13px; background: #eee5d2; transform: rotate(12deg); }
+.tarot-card { position: absolute; z-index: 1; width: 170px; height: 280px; left: 60px; bottom: 40px; padding: 16px; border: 1px solid #b8a17d; outline: 1px solid #b8a17d80; outline-offset: -7px; background: #eee5d2; color: #745c39; border-radius: 3px; display: flex; align-items: center; flex-direction: column; opacity: 0; transform: translateY(15px) scale(.85); transition: transform 1.5s .35s ease, opacity .7s .35s; cursor: pointer; box-shadow: 0 10px 25px #352b2512; }
+.tarot-number { font: 12px var(--serif); letter-spacing: .2em; }
+.tarot-card svg { width: 132px; flex: 1; min-height: 0; }
+.tarot-title { font: 15px var(--serif); letter-spacing: .18em; }
+.tarot-caption { font-size: 9px; margin-top: 10px; letter-spacing: .12em; }
+.unwrapped .gift-lid { transform: translate(70px, -110px) rotate(24deg); opacity: 0; }
+.unwrapped .tarot-card { transform: translateY(-100px); opacity: 1; z-index: 5; }
+.unwrapped .gift-box { opacity: .45; transition: opacity 1s .5s; }
+.gift-message { font-size: 12px; line-height: 1.8; color: var(--muted); margin: 12px 0; }
+.gift-continue { border: none; border-bottom: 1px solid #bfae99; background: none; color: var(--red); padding: 12px 8px; min-height: 44px; font-size: 12px; cursor: pointer; }
+.gift-continue span { margin-left: 12px; }
+.gift-footnote { margin-top: 24px; font-size: 8px; }
+@media (max-height: 700px) { .gift-intro { padding-top: 18px; } .gift-intro h1 { margin-top: 15px; font-size: 40px; } .gift-stage { min-height: 280px; height: 280px; } .tarot-card { height: 230px; width: 146px; left: 72px; } .unwrapped .tarot-card { transform: translateY(-65px); } .gift-footnote { margin-top: 14px; } }
+/* Untie, unfold, then reveal: three distinct beats. */
+.gift-side { position: absolute; top: 24px; bottom: 0; width: 112px; background: #c5b59a; opacity: 0; }
+.gift-side-left { left: 8px; transform-origin: left bottom; }
+.gift-side-right { right: 8px; transform-origin: right bottom; }
+.unwrapped .gift-box { opacity: 1; }
+.unwrapped .gift-bow::before { animation: untie-left .65s ease both; }
+.unwrapped .gift-bow::after { animation: untie-right .65s ease both; }
+.unwrapped .gift-base::after, .unwrapped .gift-lid::after { animation: ribbon-drop .6s .2s ease both; }
+.unwrapped .gift-lid { transition: none; animation: lid-release .8s .7s ease both; }
+.unwrapped .gift-base { animation: box-front .8s .85s ease both; transform-origin: center bottom; }
+.unwrapped .gift-side-left { animation: side-left .9s .85s ease both; }
+.unwrapped .gift-side-right { animation: side-right .9s .85s ease both; }
+.unwrapped .gift-tag { transition: opacity .3s .8s; opacity: 0; }
+.unwrapped .tarot-card { transition-delay: 1.15s; transition-timing-function: cubic-bezier(.2,.8,.2,1.12); }
+@keyframes untie-left { to { transform: translate(-65px, 25px) rotate(-40deg) scaleX(1.5); opacity: 0; } }
+@keyframes untie-right { to { transform: translate(65px, 25px) rotate(40deg) scaleX(1.5); opacity: 0; } }
+@keyframes ribbon-drop { to { transform: translateY(100px) rotate(18deg); opacity: 0; } }
+@keyframes lid-release { from { transform: none; opacity: 1; } to { transform: translate(75px,-140px) rotate(30deg); opacity: 0; } }
+@keyframes box-front { to { transform: perspective(400px) rotateX(-85deg) translateY(25px); opacity: 0; } }
+@keyframes side-left { 0% { opacity: 0; } 10% { opacity: 1; } 100% { transform: translateX(-45px) rotate(-65deg); opacity: 0; } }
+@keyframes side-right { 0% { opacity: 0; } 10% { opacity: 1; } 100% { transform: translateX(45px) rotate(65deg); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .unwrapped .gift-box { visibility: hidden; } }
+
+.tarot-card:disabled { pointer-events: none; }
+.gift-box { z-index: 2; }

@@ -8,10 +8,30 @@
     <meta name="robots" content="noindex, nofollow">
     <title>ENOLA — A little record for you</title>
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="./styles.css?v=gaussian-1">
-    <script type="module" src="./js/app.js?v=gaussian-1"></script>
+    <link rel="stylesheet" href="./styles.css?v=gift-1">
+    <link rel="stylesheet" href="./gift.css?v=gift-1">
+    <script type="module" src="./js/app.js?v=gift-1"></script>
   </head>
   <body>
+    <section class="gift-intro" id="gift-intro" aria-labelledby="gift-heading" hidden>
+      <p class="gift-kicker">A LITTLE MAGIC, JUST FOR YOU</p>
+      <h1 id="gift-heading">For ENOLA</h1>
+      <p class="gift-subtitle">24 岁的第一份惊喜</p>
+      <div class="gift-stage">
+        <button class="tarot-card" id="tarot-card" type="button" disabled aria-label="星星塔罗牌，进入专属唱片">
+          <span class="tarot-number">XVII</span>
+          <svg viewBox="0 0 180 220" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1"><circle cx="90" cy="92" r="49" opacity=".35"/><path d="M90 20L99 69L140 42L113 83L162 92L113 101L140 142L99 115L90 164L81 115L40 142L67 101L18 92L67 83L40 42L81 69Z"/><path d="M20 183Q55 163 90 183T160 183M20 195Q55 175 90 195T160 195"/><circle cx="26" cy="30" r="2"/><circle cx="153" cy="152" r="2"/><circle cx="153" cy="24" r="2"/></g></svg>
+          <span class="tarot-title">THE STAR</span><span class="tarot-caption">星星 · 愿望与希望</span>
+        </button>
+        <button class="gift-box" id="open-gift" type="button" aria-label="拆开生日礼物">
+          <span class="gift-lid"><span class="gift-bow"></span></span>
+          <span class="gift-base"></span><span class="gift-side gift-side-left"></span><span class="gift-side gift-side-right"></span><span class="gift-tag">E.</span>
+        </button>
+      </div>
+      <p class="gift-message" id="gift-message" role="status">轻触礼盒，拆开属于你的惊喜。</p>
+      <button class="gift-continue" id="gift-continue" type="button" hidden>收下星星，听听我的心意 <span>→</span></button>
+      <span class="gift-footnote">WITH ALL MY LOVE · 24</span>
+    </section>
     <main>
       <section class="sleeve" aria-labelledby="name">
         <div class="edition"><span>A PRIVATE PRESSING</span><span>VOL. <span data-copy="age">24</span></span></div>
