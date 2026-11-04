@@ -73,3 +73,13 @@
 .unwrapped .gift-art-body { animation: illustrated-box-settle .75s .45s both; }
 @keyframes bow-release { 50% { transform: scale(1.22,.8) translateY(10px); opacity: 1; } 100% { transform: scale(1.5,.5) translateY(30px); opacity: 0; } }
 @keyframes illustrated-box-settle { 40% { transform: scale(1.08,.86); } 100% { transform: scale(.9,.85) translateY(15px); opacity: .65; } }
+
+/* Painted art uses two matching clipped layers, keeping the closed seam aligned. */
+.painted-gift { position: absolute; inset: 0; background: url('./assets/gift-painted-v1.png') center / contain no-repeat; pointer-events: none; }
+.painted-gift-top { clip-path: polygon(0 0, 100% 0, 100% 44%, 89% 45%, 70% 61%, 15% 59%, 0 66%); }
+.painted-gift-bottom { clip-path: polygon(0 66%, 15% 59%, 70% 61%, 89% 45%, 100% 44%, 100% 100%, 0 100%); }
+.unwrapped .painted-gift-top { animation: painted-lid .85s .35s both; }
+.unwrapped .painted-gift-bottom { animation: painted-base .9s .45s both; }
+@keyframes painted-lid { 0% { transform: none; opacity: 1; } 25% { transform: translateY(-12px) rotate(-5deg); opacity: 1; } 100% { transform: translate(60px,-130px) rotate(24deg); opacity: 0; } }
+@keyframes painted-base { 35% { transform: scale(1.06,.9); opacity: 1; } 100% { transform: translateY(15px) scale(.9); opacity: .4; } }
+@media (prefers-reduced-motion: reduce) { .unwrapped .painted-gift { opacity: 0; } }
