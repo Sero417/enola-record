@@ -83,3 +83,6 @@
 @keyframes painted-lid { 0% { transform: none; opacity: 1; } 25% { transform: translateY(-12px) rotate(-5deg); opacity: 1; } 100% { transform: translate(60px,-130px) rotate(24deg); opacity: 0; } }
 @keyframes painted-base { 35% { transform: scale(1.06,.9); opacity: 1; } 100% { transform: translateY(15px) scale(.9); opacity: .4; } }
 @media (prefers-reduced-motion: reduce) { .unwrapped .painted-gift { opacity: 0; } }
+
+.gift-subtitle { font-size: 10px; letter-spacing: .22em; }
+.gift-intro h1 { margin-top: 28px; }
