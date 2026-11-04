@@ -63,3 +63,13 @@
 @keyframes card-hover { 0%,100% { transform: translateY(var(--card-rise)); } 50% { transform: translateY(calc(var(--card-rise) - 5px)); } }
 @media (max-height: 700px) { .gift-stage { --card-rise: -65px; } }
 @media (prefers-reduced-motion: reduce) { .unwrapped .tarot-card { opacity: 1; transform: translateY(var(--card-rise)); } }
+/* Illustrated teal box with gold ribbon, based on the supplied reference. */
+.gift-box { width: 290px; height: 290px; left: 0; bottom: 8px; padding: 0; }
+.gift-art { width: 100%; height: 100%; overflow: visible; }
+.gift-art-lid, .gift-art-bow, .gift-art-body { transform-box: fill-box; transform-origin: center bottom; }
+.unwrapped .gift-art-bow { animation: bow-release .55s ease both; }
+.unwrapped .gift-art-ribbon { animation: ribbon-drop .55s .15s both; }
+.unwrapped .gift-art-lid { animation: lid-release .65s .4s both; }
+.unwrapped .gift-art-body { animation: illustrated-box-settle .75s .45s both; }
+@keyframes bow-release { 50% { transform: scale(1.22,.8) translateY(10px); opacity: 1; } 100% { transform: scale(1.5,.5) translateY(30px); opacity: 0; } }
+@keyframes illustrated-box-settle { 40% { transform: scale(1.08,.86); } 100% { transform: scale(.9,.85) translateY(15px); opacity: .65; } }
