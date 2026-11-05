@@ -137,3 +137,14 @@ html { scroll-snap-type: y proximity; scroll-padding-top: 0; }
 
 /* Trace the actual rim in source-image coordinates, with identical SVG scaling. */
 .gift-foreground { background: none; clip-path: none; overflow: visible; }
+/* Lift the lid in front of every wall; reveal the card only after clearance. */
+.gift-lid-layer { position: absolute; width: 290px; height: 290px; bottom: 8px; left: 0; z-index: 5; pointer-events: none; }
+.unwrapped .painted-gift-top { animation: lid-clearance .9s .25s both; }
+.unwrapped .tarot-card { animation: card-depth 1.5s 1.35s cubic-bezier(.2,.65,.25,1) both, card-hover 4s 2.85s ease-in-out infinite; }
+@keyframes lid-clearance {
+  0% { transform: translateY(0); opacity: 1; }
+  40% { transform: translateY(-45px); opacity: 1; }
+  70% { transform: translate(28px,-95px) rotate(12deg); opacity: .8; }
+  100% { transform: translate(65px,-150px) rotate(24deg); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .unwrapped .gift-lid-layer { visibility: hidden; } }
