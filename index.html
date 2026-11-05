@@ -8,13 +8,13 @@
     <meta name="robots" content="noindex, nofollow">
     <title>ENOLA — A little record for you</title>
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="./styles.css?v=gift-minimal-1">
-    <link rel="stylesheet" href="./gift.css?v=gift-minimal-1">
-    <script type="module" src="./js/app.js?v=gift-minimal-1"></script>
+    <link rel="stylesheet" href="./styles.css?v=gift-pages-1">
+    <link rel="stylesheet" href="./gift.css?v=gift-pages-1">
+    <script type="module" src="./js/app.js?v=gift-pages-1"></script>
   </head>
   <body>
-    <section class="gift-intro" id="gift-intro" aria-labelledby="gift-heading" hidden>
-      <h1 id="gift-heading">For ENOLA</h1>
+    <section class="gift-intro" id="gift-intro" aria-labelledby="gift-heading">
+      <h1 id="gift-heading"><span class="gift-for">For</span> <span class="gift-name">ENOLA</span></h1>
       <p class="gift-subtitle">HAPPY 24TH BIRTHDAY</p>
       <div class="gift-stage">
         <button class="tarot-card" id="tarot-card" type="button" disabled aria-label="星星塔罗牌，进入专属唱片">
@@ -25,9 +25,11 @@
           <span class="painted-gift painted-gift-top"></span>
         </button>
       </div>
+      <button class="page-arrow page-arrow-down" id="to-record" type="button" aria-label="向下进入唱片页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="m8 8 8 7 8-7M8 17l8 7 8-7"/></svg></button>
     </section>
-    <main>
+    <main id="record-page">
       <section class="sleeve" aria-labelledby="name">
+        <button class="page-arrow page-arrow-up" id="to-gift" type="button" aria-label="向上返回礼物页"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="m8 8 8 7 8-7M8 17l8 7 8-7"/></svg></button>
         <div class="edition"><span>A PRIVATE PRESSING</span><span>VOL. <span data-copy="age">24</span></span></div>
         <header class="heading">
           <p class="eyebrow" data-copy="subtitle">HAPPY 24TH BIRTHDAY</p>

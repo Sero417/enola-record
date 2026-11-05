@@ -86,3 +86,17 @@
 
 .gift-subtitle { font-size: 10px; letter-spacing: .22em; }
 .gift-intro h1 { margin-top: 28px; }
+/* Two native scrolling pages, with direct access before scripts load. */
+html { scroll-snap-type: y proximity; scroll-padding-top: 0; }
+.gift-intro, #record-page { scroll-snap-align: start; scroll-margin-top: 0; }
+.gift-intro { position: relative; padding-bottom: max(70px, calc(44px + env(safe-area-inset-bottom))); }
+.gift-intro h1 { font-style: normal; }
+.gift-for { font: italic .8em var(--serif); }
+.gift-name { font-family: 'Arial Rounded MT Bold', 'Trebuchet MS', 'Verdana', sans-serif; font-weight: 700; letter-spacing: .025em; }
+.page-arrow { display: grid; place-items: center; width: 48px; height: 44px; border: 0; padding: 6px; background: transparent; color: var(--muted); cursor: pointer; flex-shrink: 0; }
+.page-arrow svg { width: 27px; height: 27px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.page-arrow-down { position: absolute; bottom: max(15px, env(safe-area-inset-bottom)); left: calc(50% - 24px); }
+.page-arrow-up svg { transform: rotate(180deg); }
+#record-page .sleeve { position: relative; padding-top: max(46px, calc(30px + env(safe-area-inset-top))); }
+.page-arrow-up { position: absolute; top: max(2px, env(safe-area-inset-top)); left: calc(50% - 24px); }
+@media (max-width: 599px) { #record-page .heading { margin-top: clamp(12px, 3svh, 24px); } }

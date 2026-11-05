@@ -3,8 +3,7 @@ export function setupGift() {
   const main = document.querySelector('main');
   const open = document.querySelector('#open-gift');
   const card = document.querySelector('#tarot-card');
-  intro.hidden = false;
-  main.hidden = true;
+
   open.addEventListener('click', () => {
     if (intro.classList.contains('unwrapped')) return;
     intro.classList.add('unwrapped');
@@ -15,14 +14,11 @@ export function setupGift() {
       card.focus({ preventScroll: true });
     }, delay);
   });
-  function enter() {
-    intro.hidden = true;
-    main.hidden = false;
-    window.scrollTo(0, 0);
-    const title = document.querySelector('#name');
-    title.tabIndex = -1;
-    title.focus({ preventScroll: true });
-    window.dispatchEvent(new Event('resize'));
+  // Both pages stay in document flow, so native touch scrolling works in either direction.
+  function goTo(target) {
+    target.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' });
   }
-  card.addEventListener('click', enter);
+  card.addEventListener('click', () => goTo(main));
+  document.querySelector('#to-record').addEventListener('click', () => goTo(main));
+  document.querySelector('#to-gift').addEventListener('click', () => goTo(intro));
 }
