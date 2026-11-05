@@ -176,3 +176,17 @@ body.lyrics-open main { filter: blur(22px); }
   .gesture-hint { padding-top: 16px; }
   .sleeve > .player-status { margin: 6px 0 max(12px, env(safe-area-inset-bottom)); min-height: 16px; line-height: 1.6; }
 }
+/* Keep manual lyric browsing separate from the audio's current line. */
+.lyrics-viewport { position: relative; display: flex; flex: 1; min-height: 120px; margin: 26px 0; }
+.lyrics-viewport .lyrics-lines { margin: 0; min-width: 0; }
+.lyric-picker { position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%); display: flex; align-items: center; gap: 8px; pointer-events: none; color: #fff6e9aa; }
+.lyric-picker[hidden], .follow-lyrics[hidden] { display: none; }
+#lyric-pick-time { font-size: 9px; font-variant-numeric: tabular-nums; }
+.lyric-pick-rule { flex: 1; border-bottom: 1px dashed #fff6e92b; }
+#play-lyric { pointer-events: auto; width: 40px; height: 44px; border: 0; border-radius: 50%; color: #fff6e9; background: #302923bb; cursor: pointer; }
+#play-lyric:disabled { opacity: .35; cursor: default; }
+.lyrics-lines.browsing p { padding-inline: 38px; }
+.lyrics-lines.browsing .current-line { opacity: .45; transform: none; }
+.lyrics-lines.browsing .selected-line { opacity: 1; font-weight: 600; }
+.follow-lyrics { align-self: center; flex-shrink: 0; border: 0; background: none; color: #eee7daba; font-size: 10px; min-height: 32px; cursor: pointer; margin-top: -18px; }
+@media (max-height: 650px) { .lyrics-viewport { margin-block: 12px; } }
