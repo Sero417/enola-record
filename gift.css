@@ -110,3 +110,21 @@ html { scroll-snap-type: y proximity; scroll-padding-top: 0; }
 .tarot-card { padding: 0; border: 0; outline: 0; background: transparent; box-shadow: none; width: 164px; height: 279px; left: 63px; }
 .gift-tarot-image { display: block; width: 100%; height: 100%; object-fit: contain; border-radius: 8px; filter: drop-shadow(0 8px 12px #352b2525); }
 @media (max-height: 700px) { .tarot-card { width: 146px; height: 248px; left: 72px; } }
+/* The hollow body stays rigid while the card approaches from inside it. */
+.painted-gift-open { background-image: url('./assets/gift-open-v1.png'); opacity: 0; }
+.unwrapped .painted-gift-bottom { animation: closed-body-away .2s .48s both; }
+.unwrapped .painted-gift-open { animation: open-body-appear .2s .48s both; }
+.unwrapped .painted-gift-top { animation-duration: 1s; }
+.unwrapped .tarot-card { transform-origin: center 75%; animation: card-depth 1.5s .6s cubic-bezier(.2,.65,.25,1) both, card-hover 4s 2.1s ease-in-out infinite; }
+@keyframes closed-body-away { from { opacity: 1; } to { opacity: 0; } }
+@keyframes open-body-appear { from { opacity: 0; } to { opacity: 1; } }
+@keyframes card-depth {
+  0% { opacity: 0; transform: perspective(700px) translateY(64px) translateZ(-240px) rotateX(28deg) rotateZ(-8deg) scale(.22); }
+  15% { opacity: 1; }
+  45% { opacity: 1; transform: perspective(700px) translateY(-18px) translateZ(-100px) rotateX(16deg) rotateZ(-4deg) scale(.58); }
+  80% { opacity: 1; transform: perspective(700px) translateY(calc(var(--card-rise) - 8px)) translateZ(16px) rotateX(-3deg) rotateZ(2deg) scale(1.02); }
+  100% { opacity: 1; transform: perspective(700px) translateY(var(--card-rise)) translateZ(0) rotateX(0) rotateZ(0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) { .unwrapped .painted-gift-open { opacity: 1; } }
+.gift-intro #gift-heading { width: min(330px, 100%); margin: 4px 0 6px; transform: none; font-size: 0; line-height: 0; }
+.gift-title-image { display: block; width: 100%; height: auto; }

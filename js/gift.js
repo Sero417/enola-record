@@ -8,7 +8,7 @@ export function setupGift() {
     if (intro.classList.contains('unwrapped')) return;
     intro.classList.add('unwrapped');
     open.disabled = true;
-    const delay = matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 1600;
+    const delay = matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 2100;
     setTimeout(() => {
       card.disabled = false;
       card.focus({ preventScroll: true });
