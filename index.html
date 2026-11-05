@@ -7,10 +7,12 @@
     <meta name="description" content="A little record, just for ENOLA. 一份可以听见的生日礼物。">
     <meta name="robots" content="noindex, nofollow">
     <title>ENOLA — A little record for you</title>
+    <link rel="preload" as="image" href="./assets/gift-lid-v2.png">
+    <link rel="preload" as="image" href="./assets/gift-open-v1.png">
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="./styles.css?v=gift-lid-1">
-    <link rel="stylesheet" href="./gift.css?v=gift-lid-1">
-    <script type="module" src="./js/app.js?v=gift-lid-1"></script>
+    <link rel="stylesheet" href="./styles.css?v=gift-lid-clean-1">
+    <link rel="stylesheet" href="./gift.css?v=gift-lid-clean-1">
+    <script type="module" src="./js/app.js?v=gift-lid-clean-1"></script>
   </head>
   <body>
     <section class="gift-intro" id="gift-intro" aria-labelledby="gift-heading">
@@ -21,7 +23,7 @@
           <img class="gift-tarot-image" src="./assets/tarot-four-of-wands.svg" alt="两位女子站在花枝之间的权杖四塔罗牌" width="254" height="432">
         </button>
         <button class="gift-box" id="open-gift" type="button" aria-label="拆开生日礼物">
-          <span class="painted-gift painted-gift-bottom"></span>
+          <span class="painted-gift gift-closed-whole"></span>
           <span class="painted-gift painted-gift-open"></span>
         </button>
         <span class="gift-lid-layer" aria-hidden="true"><span class="painted-gift painted-gift-top"></span></span>

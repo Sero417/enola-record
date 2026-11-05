@@ -148,3 +148,11 @@ html { scroll-snap-type: y proximity; scroll-padding-top: 0; }
   100% { transform: translate(65px,-150px) rotate(24deg); opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) { .unwrapped .gift-lid-layer { visibility: hidden; } }
+/* Separate, predecoded sprites swap atomically; only the isolated lid moves. */
+.gift-closed-whole { z-index: 1; }
+.painted-gift-top { background-image: url('./assets/gift-lid-v2.png'); clip-path: none; opacity: 0; }
+.unwrapped .gift-closed-whole { animation: hide-closed .25s step-end both; }
+.unwrapped .painted-gift-open, .unwrapped .gift-foreground { animation: show-open .25s step-end both; }
+.unwrapped .painted-gift-top { animation: lid-clearance .9s .25s both; }
+@keyframes hide-closed { from { opacity: 1; } to { opacity: 0; } }
+@keyframes show-open { from { opacity: 0; } to { opacity: 1; } }

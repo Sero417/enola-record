@@ -4,10 +4,17 @@ export function setupGift() {
   const open = document.querySelector('#open-gift');
   const card = document.querySelector('#tarot-card');
 
-  open.addEventListener('click', () => {
+  // Decode both animation sprites before exposing the open state to avoid blank frames.
+  const sprites = ['./assets/gift-lid-v2.png', './assets/gift-open-v1.png'].map(src => {
+    const image = new Image(); image.src = src;
+    return image;
+  });
+  open.addEventListener('click', async () => {
     if (intro.classList.contains('unwrapped')) return;
-    intro.classList.add('unwrapped');
     open.disabled = true;
+    try { await Promise.all(sprites.map(image => image.decode())); }
+    catch { open.disabled = false; return; }
+    intro.classList.add('unwrapped');
     const delay = matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 2900;
     setTimeout(() => {
       card.disabled = false;
