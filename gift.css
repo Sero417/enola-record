@@ -134,3 +134,6 @@ html { scroll-snap-type: y proximity; scroll-padding-top: 0; }
 .gift-foreground { position: absolute; width: 290px; height: 290px; bottom: 8px; left: 0; z-index: 4; pointer-events: none; opacity: 0; background: url('./assets/gift-open-v1.png') center / contain no-repeat; clip-path: polygon(0 48%, 15% 48%, 69% 55%, 89% 35%, 100% 35%, 100% 100%, 0 100%); }
 .unwrapped .gift-foreground { animation: open-body-appear .2s .48s both; }
 @media (prefers-reduced-motion: reduce) { .unwrapped .gift-foreground { opacity: 1; } }
+
+/* Trace the actual rim in source-image coordinates, with identical SVG scaling. */
+.gift-foreground { background: none; clip-path: none; overflow: visible; }
