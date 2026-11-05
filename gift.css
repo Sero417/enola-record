@@ -128,3 +128,9 @@ html { scroll-snap-type: y proximity; scroll-padding-top: 0; }
 @media (prefers-reduced-motion: reduce) { .unwrapped .painted-gift-open { opacity: 1; } }
 .gift-intro #gift-heading { width: min(330px, 100%); margin: 4px 0 6px; transform: none; font-size: 0; line-height: 0; }
 .gift-title-image { display: block; width: 100%; height: auto; }
+/* Rear walls → card → front/right walls: the card emerges through the opening. */
+.unwrapped .gift-box { animation: none; }
+.unwrapped .tarot-card { z-index: 3; }
+.gift-foreground { position: absolute; width: 290px; height: 290px; bottom: 8px; left: 0; z-index: 4; pointer-events: none; opacity: 0; background: url('./assets/gift-open-v1.png') center / contain no-repeat; clip-path: polygon(0 48%, 15% 48%, 69% 55%, 89% 35%, 100% 35%, 100% 100%, 0 100%); }
+.unwrapped .gift-foreground { animation: open-body-appear .2s .48s both; }
+@media (prefers-reduced-motion: reduce) { .unwrapped .gift-foreground { opacity: 1; } }
