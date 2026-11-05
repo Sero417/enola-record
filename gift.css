@@ -100,3 +100,5 @@ html { scroll-snap-type: y proximity; scroll-padding-top: 0; }
 #record-page .sleeve { position: relative; padding-top: max(46px, calc(30px + env(safe-area-inset-top))); }
 .page-arrow-up { position: absolute; top: max(2px, env(safe-area-inset-top)); left: calc(50% - 24px); }
 @media (max-width: 599px) { #record-page .heading { margin-top: clamp(12px, 3svh, 24px); } }
+@font-face { font-family: 'Itim'; src: url('./assets/fonts/Itim-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+.gift-name { font-family: 'Itim', 'Arial Rounded MT Bold', cursive; font-weight: 400; -webkit-text-stroke: .55px currentColor; letter-spacing: .035em; }

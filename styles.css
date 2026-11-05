@@ -185,8 +185,28 @@ body.lyrics-open main { filter: blur(22px); }
 .lyric-pick-rule { flex: 1; border-bottom: 1px dashed #fff6e92b; }
 #play-lyric { pointer-events: auto; width: 40px; height: 44px; border: 0; border-radius: 50%; color: #fff6e9; background: #302923bb; cursor: pointer; }
 #play-lyric:disabled { opacity: .35; cursor: default; }
-.lyrics-lines.browsing p { padding-inline: 38px; }
+
 .lyrics-lines.browsing .current-line { opacity: .45; transform: none; }
 .lyrics-lines.browsing .selected-line { opacity: 1; font-weight: 600; }
 .follow-lyrics { align-self: center; flex-shrink: 0; border: 0; background: none; color: #eee7daba; font-size: 10px; min-height: 32px; cursor: pointer; margin-top: -18px; }
 @media (max-height: 650px) { .lyrics-viewport { margin-block: 12px; } }
+
+/* Stable lyric columns: browsing does not reflow or resize the text. */
+#lyrics-dialog { padding-inline: 20px; }
+.lyrics-header { padding-inline: 12px; }
+#lyrics-title { font-size: 22px; letter-spacing: .06em; margin-top: 14px; }
+.lyrics-credit { font-size: 11px; opacity: .65; }
+.lyrics-lines { outline: none; overscroll-behavior-y: contain; }
+.lyrics-lines:focus-visible { outline: none; }
+.lyrics-lines p { padding: 19px 40px; font-size: 16px; line-height: 1.8; letter-spacing: 0; font-weight: 400; overflow-wrap: break-word; }
+.lyrics-lines .current-line { font-weight: 500; transform: none; }
+.lyrics-lines.browsing .selected-line { font-weight: 500; }
+.lyric-picker { gap: 0; color: #fff6e97a; }
+#lyric-pick-time { width: 36px; font-size: 10px; text-align: left; }
+.lyric-pick-rule { border: 0; height: 1px; background: linear-gradient(to right,#fff6e925,transparent 18%,transparent 82%,#fff6e925); }
+#play-lyric { width: 36px; height: 44px; padding: 10px 6px; background: transparent; border-radius: 0; display: grid; place-items: center; }
+#play-lyric svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; }
+.follow-lyrics { position: absolute; bottom: 126px; left: 50%; transform: translateX(-50%); margin: 0; font-size: 10px; letter-spacing: .04em; color: #fff6e97a; }
+#lyrics-dialog .player { margin-inline: 12px; }
+.lyrics-note { margin-top: 16px; font-size: 8px; opacity: .4; }
+@media (max-width: 380px) { .lyrics-lines p { font-size: 15px; padding-inline: 36px; } }
