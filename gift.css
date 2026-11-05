@@ -102,3 +102,11 @@ html { scroll-snap-type: y proximity; scroll-padding-top: 0; }
 @media (max-width: 599px) { #record-page .heading { margin-top: clamp(12px, 3svh, 24px); } }
 @font-face { font-family: 'Itim'; src: url('./assets/fonts/Itim-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
 .gift-name { font-family: 'Itim', 'Arial Rounded MT Bold', cursive; font-weight: 400; -webkit-text-stroke: .55px currentColor; letter-spacing: .035em; }
+@font-face { font-family: 'Allura'; src: url('./assets/fonts/Allura-Regular.ttf') format('truetype'); font-style: normal; font-weight: 400; font-display: swap; }
+.gift-intro #gift-heading { font-family: 'Allura', cursive; font-size: clamp(60px, 16vw, 78px); line-height: 1.15; font-weight: 400; margin: 15px 0 8px; transform: rotate(-3deg); }
+.gift-for, .gift-name { font: inherit; letter-spacing: 0; -webkit-text-stroke: 0; }
+.gift-for { font-size: .68em; margin-right: .1em; }
+.gift-subtitle { font-size: 9px; letter-spacing: .24em; }
+.tarot-card { padding: 0; border: 0; outline: 0; background: transparent; box-shadow: none; width: 164px; height: 279px; left: 63px; }
+.gift-tarot-image { display: block; width: 100%; height: 100%; object-fit: contain; border-radius: 8px; filter: drop-shadow(0 8px 12px #352b2525); }
+@media (max-height: 700px) { .tarot-card { width: 146px; height: 248px; left: 72px; } }
