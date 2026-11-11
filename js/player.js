@@ -3,7 +3,7 @@ export function formatTime(seconds) {
   return `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}`;
 }
 
-export function createPlayer(source) {
+export function createPlayer(source, missingMessage = null) {
   const audio = document.querySelector('#audio');
   const player = document.querySelector('#player');
   const turntable = document.querySelector('#turntable');
@@ -99,7 +99,7 @@ export function createPlayer(source) {
     const code = audio.error?.code;
     fail(code === 3 ? '这段录音暂时无法解码，请换成浏览器支持的 MP3 文件。' :
       code === 2 ? '声音暂时未能送达，请检查网络后重试。' :
-        '这张唱片还在等一段声音。录音尚未放入，或暂时无法加载。');
+        (missingMessage || '这张唱片还在等一段声音。录音尚未放入，或暂时无法加载。'));
   });
 
   async function start() {
@@ -111,7 +111,7 @@ export function createPlayer(source) {
     status.textContent = '声音正在靠近，请稍等…';
     try { await audio.play(); }
     catch (error) {
-      if (error.name !== 'AbortError') fail('暂时无法播放，请检查网络并点击重新加载。');
+      if (error.name !== 'AbortError') fail(missingMessage || '暂时无法播放，请检查网络并点击重新加载。');
     }
   }
   function stop() {

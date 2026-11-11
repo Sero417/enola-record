@@ -1,5 +1,6 @@
-import { config } from './config.js?v=gift-lid-clean-1';
-import { createPlayer } from './player.js?v=gift-lid-clean-1';
+import { applyGiftVariant } from './variants.js?v=seven-gifts-1';
+import { config } from './config.js?v=seven-gifts-1';
+import { createPlayer } from './player.js?v=seven-gifts-1';
 
 document.querySelectorAll('[data-copy]').forEach((element) => {
   const value = config[element.dataset.copy];
@@ -8,11 +9,12 @@ document.querySelectorAll('[data-copy]').forEach((element) => {
 document.title = `${config.name} — A little record for you`;
 document.querySelector('meta[name="description"]').content = `A little record, just for ${config.name}. 一份可以听见的生日礼物。`;
 
-const controls = createPlayer(config.audioSrc);
-import { setupTonearm } from './tonearm.js?v=gift-lid-clean-1';
-import { setupLyrics } from './lyrics.js?v=gift-lid-clean-1';
+const variant = applyGiftVariant();
+const controls = createPlayer(variant ? variant.audioSrc : config.audioSrc, variant ? '这份礼物的歌曲还在准备中，之后再来听听吧。' : null);
+import { setupTonearm } from './tonearm.js?v=seven-gifts-1';
+import { setupLyrics } from './lyrics.js?v=seven-gifts-1';
 setupTonearm(controls);
 setupLyrics(controls);
 
-import { setupGift } from './gift.js?v=gift-pages-1';
+import { setupGift } from './gift.js?v=seven-gifts-1';
 setupGift();

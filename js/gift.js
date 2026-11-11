@@ -9,6 +9,8 @@ export function setupGift() {
     const image = new Image(); image.src = src;
     return image;
   });
+  const giftImage = card.querySelector('img');
+  if (giftImage) sprites.push(giftImage);
   open.addEventListener('click', async () => {
     if (intro.classList.contains('unwrapped')) return;
     open.disabled = true;

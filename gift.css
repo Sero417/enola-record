@@ -156,3 +156,19 @@ html { scroll-snap-type: y proximity; scroll-padding-top: 0; }
 .unwrapped .painted-gift-top { animation: lid-clearance .9s .25s both; }
 @keyframes hide-closed { from { opacity: 1; } to { opacity: 0; } }
 @keyframes show-open { from { opacity: 0; } to { opacity: 1; } }
+.gift-object { width: 200px; height: 260px; left: 45px; }
+.gift-object-image { display: block; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 6px 9px #352b2522); }
+.gift-object-comb { width: 158px; left: 66px; }
+.gift-letter { position: relative; display: flex; flex-direction: column; width: 175px; height: 245px; padding: 25px 20px; background: #f6edda; box-shadow: 0 5px 14px #352b2520; border: 1px solid #d4c4a5; transform: rotate(-3deg); text-align: left; }
+.letter-to { font: 24px 'Allura', cursive; color: #594538; }
+.letter-lines { height: 100px; margin-top: 17px; background: repeating-linear-gradient(transparent 0 17px,#af998333 17px 18px); }
+.letter-signature { font: 19px 'Allura', cursive; margin-top: 16px; color: #594538; }
+.letter-seal { position: absolute; right: 16px; bottom: 12px; border: 1px solid #9a6c6280; border-radius: 50%; width: 22px; height: 22px; font: italic 14px serif; text-align: center; line-height: 22px; color: #9a6c62; }
+.tarot-card .penguin-kiss { width: 220px; height: 240px; flex: none; }
+.penguin-left { animation: penguin-nuzzle-left 3s ease-in-out infinite; }
+.penguin-right { animation: penguin-nuzzle-right 3s ease-in-out infinite; }
+.kiss-heart { animation: kiss-bloom 3s ease-in-out infinite; transform-origin: 120px 95px; }
+@keyframes penguin-nuzzle-left { 0%,100% { transform: translate(66px,143px) rotate(0); } 45%,65% { transform: translate(85px,140px) rotate(8deg); } }
+@keyframes penguin-nuzzle-right { 0%,100% { transform: translate(174px,143px) rotate(0); } 45%,65% { transform: translate(155px,140px) rotate(-8deg); } }
+@keyframes kiss-bloom { 0%,25%,100% { opacity: 0; transform: scale(.6); } 45%,65% { opacity: 1; transform: scale(1); } }
+@media (max-height:700px) { .gift-object { width: 184px; height: 245px; left: 53px; } .gift-object-comb { width: 145px; left: 72px; } }
