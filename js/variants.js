@@ -1,10 +1,10 @@
 // One shared design, seven independent NFC destinations and audio files.
 export const gifts = {
-  comb: { name: '木梳', image: 'comb.png' },
-  cats: { name: '猫猫挂件', image: 'cats.png' },
-  hats: { name: '双帽子', image: 'hats.png' },
-  nails: { name: '穿戴甲', image: 'nails.png' },
-  doll: { name: '娃娃', image: 'doll.png' },
+  comb: { name: '木梳', image: 'comb.webp' },
+  cats: { name: '猫猫挂件', image: 'cats.webp' },
+  hats: { name: '双帽子', image: 'hats.webp' },
+  nails: { name: '穿戴甲', image: 'nails.webp' },
+  doll: { name: '娃娃', image: 'doll.webp' },
   letter: { name: '一封信', kind: 'letter' },
   kiss: { name: '企鹅亲亲', kind: 'kiss' },
 };

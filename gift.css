@@ -75,7 +75,7 @@
 @keyframes illustrated-box-settle { 40% { transform: scale(1.08,.86); } 100% { transform: scale(.9,.85) translateY(15px); opacity: .65; } }
 
 /* Painted art uses two matching clipped layers, keeping the closed seam aligned. */
-.painted-gift { position: absolute; inset: 0; background: url('./assets/gift-painted-v1.png') center / contain no-repeat; pointer-events: none; }
+.painted-gift { position: absolute; inset: 0; background: url('./assets/gift-painted-v1.webp') center / contain no-repeat; pointer-events: none; }
 .painted-gift-top { clip-path: polygon(0 0, 100% 0, 100% 44%, 89% 45%, 70% 61%, 15% 59%, 0 66%); }
 .painted-gift-bottom { clip-path: polygon(0 66%, 15% 59%, 70% 61%, 89% 45%, 100% 44%, 100% 100%, 0 100%); }
 .unwrapped .painted-gift-top { animation: painted-lid .85s .35s both; }
@@ -111,7 +111,7 @@ html { scroll-snap-type: y proximity; scroll-padding-top: 0; }
 .gift-tarot-image { display: block; width: 100%; height: 100%; object-fit: contain; border-radius: 8px; filter: drop-shadow(0 8px 12px #352b2525); }
 @media (max-height: 700px) { .tarot-card { width: 146px; height: 248px; left: 72px; } }
 /* The hollow body stays rigid while the card approaches from inside it. */
-.painted-gift-open { background-image: url('./assets/gift-open-v1.png'); opacity: 0; }
+.painted-gift-open { background-image: url('./assets/gift-open-v1.webp'); opacity: 0; }
 .unwrapped .painted-gift-bottom { animation: closed-body-away .2s .48s both; }
 .unwrapped .painted-gift-open { animation: open-body-appear .2s .48s both; }
 .unwrapped .painted-gift-top { animation-duration: 1s; }
@@ -131,7 +131,7 @@ html { scroll-snap-type: y proximity; scroll-padding-top: 0; }
 /* Rear walls → card → front/right walls: the card emerges through the opening. */
 .unwrapped .gift-box { animation: none; }
 .unwrapped .tarot-card { z-index: 3; }
-.gift-foreground { position: absolute; width: 290px; height: 290px; bottom: 8px; left: 0; z-index: 4; pointer-events: none; opacity: 0; background: url('./assets/gift-open-v1.png') center / contain no-repeat; clip-path: polygon(0 48%, 15% 48%, 69% 55%, 89% 35%, 100% 35%, 100% 100%, 0 100%); }
+.gift-foreground { position: absolute; width: 290px; height: 290px; bottom: 8px; left: 0; z-index: 4; pointer-events: none; opacity: 0; background: url('./assets/gift-open-v1.webp') center / contain no-repeat; clip-path: polygon(0 48%, 15% 48%, 69% 55%, 89% 35%, 100% 35%, 100% 100%, 0 100%); }
 .unwrapped .gift-foreground { animation: open-body-appear .2s .48s both; }
 @media (prefers-reduced-motion: reduce) { .unwrapped .gift-foreground { opacity: 1; } }
 
@@ -150,7 +150,7 @@ html { scroll-snap-type: y proximity; scroll-padding-top: 0; }
 @media (prefers-reduced-motion: reduce) { .unwrapped .gift-lid-layer { visibility: hidden; } }
 /* Separate, predecoded sprites swap atomically; only the isolated lid moves. */
 .gift-closed-whole { z-index: 1; }
-.painted-gift-top { background-image: url('./assets/gift-lid-v2.png'); clip-path: none; opacity: 0; }
+.painted-gift-top { background-image: url('./assets/gift-lid-v2.webp'); clip-path: none; opacity: 0; }
 .unwrapped .gift-closed-whole { animation: hide-closed .25s step-end both; }
 .unwrapped .painted-gift-open, .unwrapped .gift-foreground { animation: show-open .25s step-end both; }
 .unwrapped .painted-gift-top { animation: lid-clearance .9s .25s both; }
@@ -172,3 +172,5 @@ html { scroll-snap-type: y proximity; scroll-padding-top: 0; }
 @keyframes penguin-nuzzle-right { 0%,100% { transform: translate(174px,143px) rotate(0); } 45%,65% { transform: translate(155px,140px) rotate(-8deg); } }
 @keyframes kiss-bloom { 0%,25%,100% { opacity: 0; transform: scale(.6); } 45%,65% { opacity: 1; transform: scale(1); } }
 @media (max-height:700px) { .gift-object { width: 184px; height: 245px; left: 53px; } .gift-object-comb { width: 145px; left: 72px; } }
+.gift-load-status { position: absolute; bottom: 65px; left: 20px; right: 20px; margin: 0; text-align: center; font-size: 11px; line-height: 1.8; color: var(--muted); }
+.gift-load-status[hidden] { display: none; }
