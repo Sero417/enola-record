@@ -12,6 +12,15 @@ export function setupLyrics({ start }, lyrics = []) {
   let active = -2;
   let browsing = false;
   let selected = 0;
+  let returnTimer;
+  const heldPointers = new Set();
+  // Reset from the last user action or inertial scroll, never while a finger is held.
+  function scheduleReturn() {
+    clearTimeout(returnTimer);
+    if (browsing && dialog.open && heldPointers.size === 0) {
+      returnTimer = setTimeout(() => resume(), 5000);
+    }
+  }
   const picker = document.querySelector('#lyric-picker');
   const pickPlay = document.querySelector('#play-lyric');
   const follow = document.querySelector('#follow-lyrics');
@@ -31,8 +40,10 @@ export function setupLyrics({ start }, lyrics = []) {
     picker.hidden = follow.hidden = false;
     list.classList.add('browsing');
     selectNearest();
+    scheduleReturn();
   }
   function resume() {
+    clearTimeout(returnTimer);
     browsing = false;
     picker.hidden = follow.hidden = true;
     list.classList.remove('browsing');
@@ -42,7 +53,20 @@ export function setupLyrics({ start }, lyrics = []) {
   list.addEventListener('wheel', browse, { passive: true });
   list.addEventListener('pointerdown', browse);
   list.addEventListener('keydown', event => { if (['ArrowUp','ArrowDown','PageUp','PageDown','Home','End',' '].includes(event.key)) browse(); });
-  list.addEventListener('scroll', selectNearest, { passive: true });
+  list.addEventListener('scroll', () => {
+    selectNearest();
+    scheduleReturn();
+  }, { passive: true });
+  dialog.addEventListener('pointerdown', event => {
+    heldPointers.add(event.pointerId);
+    clearTimeout(returnTimer);
+  });
+  function releasePointer(event) {
+    if (heldPointers.delete(event.pointerId)) scheduleReturn();
+  }
+  window.addEventListener('pointerup', releasePointer);
+  window.addEventListener('pointercancel', releasePointer);
+  dialog.addEventListener('keydown', scheduleReturn);
   audio.addEventListener('loadedmetadata', selectNearest);
   follow.addEventListener('click', resume);
   pickPlay.addEventListener('click', () => {
@@ -78,7 +102,7 @@ export function setupLyrics({ start }, lyrics = []) {
     if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close();
   } });
   dialog.addEventListener('close', () => {
-    resume(); document.body.classList.remove('lyrics-open'); trigger.focus({ preventScroll: true });
+    heldPointers.clear(); resume(); document.body.classList.remove('lyrics-open'); trigger.focus({ preventScroll: true });
   });
   audio.addEventListener('timeupdate', () => sync());
   audio.addEventListener('seeked', () => sync());
