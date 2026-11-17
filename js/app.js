@@ -1,6 +1,6 @@
-import { applyGiftVariant } from './variants.js?v=lyrics-idle-1';
-import { config } from './config.js?v=lyrics-idle-1';
-import { createPlayer } from './player.js?v=lyrics-idle-1';
+import { applyGiftVariant } from './variants.js?v=lyrics03-update-1';
+import { config } from './config.js?v=lyrics03-update-1';
+import { createPlayer } from './player.js?v=lyrics03-update-1';
 
 document.querySelectorAll('[data-copy]').forEach((element) => {
   const value = config[element.dataset.copy];
@@ -11,12 +11,12 @@ document.querySelector('meta[name="description"]').content = `A little record, j
 
 const variant = applyGiftVariant();
 const controls = createPlayer(variant.audioSrc);
-import { setupTonearm } from './tonearm.js?v=lyrics-idle-1';
-import { setupLyrics } from './lyrics.js?v=lyrics-idle-1';
+import { setupTonearm } from './tonearm.js?v=lyrics03-update-1';
+import { setupLyrics } from './lyrics.js?v=lyrics03-update-1';
 setupTonearm(controls);
 
 
-import { setupGift } from './gift.js?v=lyrics-idle-1';
+import { setupGift } from './gift.js?v=lyrics03-update-1';
 setupGift();
 
 let timedLyrics = [];

@@ -40,5 +40,5 @@ export function applyGiftVariant() {
   document.querySelector('#lyrics-title').textContent = gift.song;
   document.querySelector('.lyrics-credit').textContent = 'A LITTLE RECORD, JUST FOR YOU';
   document.querySelector('.lyrics-note').textContent = '';
-  return { ...gift, id, audioSrc: `./public/audio/${gift.number}.mp3`, lyricsSrc: `./public/lyrics/${gift.number}.json` };
+  return { ...gift, id, audioSrc: `./public/audio/${gift.number}.mp3`, lyricsSrc: `./public/lyrics/${gift.number}.json?v=lyrics03-update-1` };
 }
