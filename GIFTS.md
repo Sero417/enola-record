@@ -1,19 +1,17 @@
-# 七份礼物与歌曲
+# 九份礼物与歌曲
 
-同一套页面提供七个独立网址，每份 NFC 贴纸写入对应链接。礼物动画和唱片交互共用，音频文件互相独立。原塔罗牌版本仍可通过不带 gift 参数的根网址访问。
+每张 NFC 写入对应编号链接；旧的 gift 参数链接仍可访问，打开后会转成编号。
 
-| 礼物 | 网页链接 | 歌曲文件位置 |
-|---|---|---|
-| 木梳 | https://sero417.github.io/enola-record/?gift=comb | public/audio/comb.mp3 |
-| 双猫挂件 | https://sero417.github.io/enola-record/?gift=cats | public/audio/cats.mp3 |
-| 两顶帽子 | https://sero417.github.io/enola-record/?gift=hats | public/audio/hats.mp3 |
-| 穿戴甲 | https://sero417.github.io/enola-record/?gift=nails | public/audio/nails.mp3 |
-| 娃娃 | https://sero417.github.io/enola-record/?gift=doll | public/audio/doll.mp3 |
-| 信纸 | https://sero417.github.io/enola-record/?gift=letter | public/audio/letter.mp3 |
-| 企鹅亲亲 | https://sero417.github.io/enola-record/?gift=kiss | public/audio/kiss.mp3 |
+| 编号 | 礼物 | 歌曲 | NFC 网址 |
+|---|---|---|---|
+| 01 | 塔罗牌 | 拍拍宇宙 | https://sero417.github.io/enola-record/?id=01 |
+| 02 | 木梳 | 等你的季节 | https://sero417.github.io/enola-record/?id=02 |
+| 03 | 帽子 | 希望你真的很快乐 | https://sero417.github.io/enola-record/?id=03 |
+| 04 | 双猫挂件 | 人质 | https://sero417.github.io/enola-record/?id=04 |
+| 05 | 穿戴甲 | Shine Brighter | https://sero417.github.io/enola-record/?id=05 |
+| 06 | 娃娃 | 我喜欢上你时的内心活动 | https://sero417.github.io/enola-record/?id=06 |
+| 07 | 信纸 | 走马 | https://sero417.github.io/enola-record/?id=07 |
+| 08 | 企鹅飞吻 | 亲亲 | https://sero417.github.io/enola-record/?id=08 |
+| 09 | OC（待补图） | I love you more | https://sero417.github.io/enola-record/?id=09 |
 
-歌曲准备好后将 MP3 放在上表对应位置，提交并发布即可，不需要修改播放器逻辑。当前没有添加占位音频，不会播放原塔罗版本的歌曲。缺少录音时会显示歌曲准备中提示。
-
-礼物配置集中在 js/variants.js，图片位于 assets/gifts/。信纸正文尚未提供，当前只有称呼、信纸横线和署名；亲亲采用两只小企鹅靠近的循环动画，支持减少动态效果偏好。
-
-实物素材根据用户提供图片制作透明抠图；帽子两顶为一组、猫猫两个挂件为一组。未进行真实 NFC 贴纸测试。
+音频位于 public/audio/01.mp3～09.mp3，时间轴位于 public/lyrics/01.json～09.json。配置集中在 js/variants.js。后续更换音频与时间轴时保持编号即可。OC 目前为无文字空白礼物占位，后续补上图片。字幕时间点沿用用户提供数据，没有重新估算；未做逐句人工听校。

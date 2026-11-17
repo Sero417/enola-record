@@ -1,6 +1,4 @@
-import { lyrics } from './lyrics-data.js?v=gaussian-1';
-
-export function setupLyrics({ start }) {
+export function setupLyrics({ start }, lyrics = []) {
   const dialog = document.querySelector('#lyrics-dialog');
   const list = document.querySelector('#lyrics-lines');
   const audio = document.querySelector('#audio');
@@ -84,5 +82,7 @@ export function setupLyrics({ start }) {
   });
   audio.addEventListener('timeupdate', () => sync());
   audio.addEventListener('seeked', () => sync());
+  const resize = new ResizeObserver(() => { if (dialog.open && !browsing) sync(true); });
+  resize.observe(list);
   sync();
 }

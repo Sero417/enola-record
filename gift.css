@@ -174,3 +174,8 @@ html { scroll-snap-type: y proximity; scroll-padding-top: 0; }
 @media (max-height:700px) { .gift-object { width: 184px; height: 245px; left: 53px; } .gift-object-comb { width: 145px; left: 72px; } }
 .gift-load-status { position: absolute; bottom: 65px; left: 20px; right: 20px; margin: 0; text-align: center; font-size: 11px; line-height: 1.8; color: var(--muted); }
 .gift-load-status[hidden] { display: none; }
+.penguin-blowing { animation: penguin-wave 3s ease-in-out infinite; transform-origin: 110px 180px; }
+.flying-kiss { animation: flying-kiss 3s ease-out infinite; transform-origin: 165px 120px; }
+@keyframes penguin-wave { 0%,100% { transform: translate(110px,143px) rotate(0); } 35%,55% { transform: translate(110px,140px) rotate(-7deg); } }
+@keyframes flying-kiss { 0%,25% { opacity: 0; transform: translate(-25px,5px) scale(.3); } 40% { opacity: 1; } 85%,100% { opacity: 0; transform: translate(24px,-44px) scale(1.15); } }
+.oc-placeholder { display: block; width: 140px; height: 205px; background: #eee7da; border-radius: 6px; box-shadow: 0 4px 12px #352b2515; }
