@@ -179,3 +179,7 @@ html { scroll-snap-type: y proximity; scroll-padding-top: 0; }
 @keyframes penguin-wave { 0%,100% { transform: translate(110px,143px) rotate(0); } 35%,55% { transform: translate(110px,140px) rotate(-7deg); } }
 @keyframes flying-kiss { 0%,25% { opacity: 0; transform: translate(-25px,5px) scale(.3); } 40% { opacity: 1; } 85%,100% { opacity: 0; transform: translate(24px,-44px) scale(1.15); } }
 .oc-placeholder { display: block; width: 140px; height: 205px; background: #eee7da; border-radius: 6px; box-shadow: 0 4px 12px #352b2515; }
+
+/* Display supplied OC as a clean cutout without recoloring. */
+.gift-object-oc { mix-blend-mode: normal; }
+.gift-object-oc .gift-object-image { filter: none; }

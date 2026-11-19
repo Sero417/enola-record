@@ -7,7 +7,7 @@ export const gifts = {
   doll: { number: '06', name: '娃娃', song: '我喜欢上你时的内心活动', image: 'doll.webp' },
   letter: { number: '07', name: '一封信', song: '走马', kind: 'letter' },
   kiss: { number: '08', name: '企鹅飞吻', song: '亲亲', kind: 'kiss' },
-  oc: { number: '09', name: 'OC 礼物', song: 'I love you more', kind: 'oc' },
+  oc: { number: '09', name: 'OC 礼物', song: 'I love you more', image: 'oc.webp' },
 };
 export function applyGiftVariant() {
   const params = new URLSearchParams(location.search);

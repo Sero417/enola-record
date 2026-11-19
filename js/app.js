@@ -1,4 +1,4 @@
-import { applyGiftVariant } from './variants.js?v=lyrics03-update-1';
+import { applyGiftVariant } from './variants.js?v=oc-gift-1';
 import { config } from './config.js?v=lyrics03-update-1';
 import { createPlayer } from './player.js?v=lyrics03-update-1';
 
